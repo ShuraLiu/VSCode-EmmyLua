@@ -26,11 +26,11 @@ async function downloadDepends() {
 }
 
 async function build() {
-    if (!fs.existsSync('temp')) {
-        fs.mkdirSync('temp')
-    }
+    // if (!fs.existsSync('temp')) {
+    //     fs.mkdirSync('temp')
+    // }
 
-    await downloadDepends();
+    // await downloadDepends();
 
     // linux
     await decompress('temp/linux-x64.zip', 'debugger/emmy/linux/');
@@ -46,7 +46,8 @@ async function build() {
         let name = args[2].substring(0, args[2].length - 7);
         await decompress(`temp/${args[2]}`, `server/${name}/`, { plugins: [decompressTargz()] });
     } else {
-        await decompress(`temp/${args[2]}`, 'server/');
+        let name = args[2].substring(0, args[2].length - 4);
+        await decompress(`temp/${args[2]}`, `server/${name}/`);
     }
 }
 

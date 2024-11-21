@@ -31,7 +31,7 @@ export abstract class DebuggerProvider implements vscode.DebugConfigurationProvi
     protected getSourceRoots(): string[] {
         const workspaceFolders = vscode.workspace.workspaceFolders || [];
         const list = workspaceFolders.map(f => { return f.uri.fsPath; });
-        const config = <Array<string>>vscode.workspace.getConfiguration("emmylua").get("source.roots") || [];
+        const config = <Array<string>>vscode.workspace.getConfiguration("emmyluaforx7").get("source.roots") || [];
         return list.concat(config.map(item => { return path.normalize(item); }));
     }
 

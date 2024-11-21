@@ -15,7 +15,7 @@ function createDecoration(key: string | undefined, config: vscode.DecorationRend
     if (key == undefined) {
         return vscode.window.createTextEditorDecorationType(config);
     }
-    let color = vscode.workspace.getConfiguration("emmylua").get(key);
+    let color = vscode.workspace.getConfiguration("emmyluaforx7").get(key);
     if (typeof (color) === 'string') {
         config.light = { color: color };
         config.dark = { color: color };
@@ -37,7 +37,7 @@ function updateDecorations() {
     D_GLOBAL = createDecoration("colors.global");
     D_DOC_TYPE = createDecoration("colors.doc_type");
 
-    let upvalueColor = vscode.workspace.getConfiguration("emmylua").get("colors.upvalue");
+    let upvalueColor = vscode.workspace.getConfiguration("emmyluaforx7").get("colors.upvalue");
     if (upvalueColor && upvalueColor != "") {
         D_UPVALUE = createDecoration(undefined, {
             textDecoration: `underline;text-decoration-color:${upvalueColor};`
